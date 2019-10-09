@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>Predict Accident_Risk</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<br> <input type="text" name="Accidents risk" class="form-control" placeholder="Accidents risk" required="required" />
+        <br> <input type="text" name="Day risk scale" class="form-control" placeholder="Day risk scale" required="required" />
+        <br><input type="text" name="Time risk scale" class="form-control" placeholder="Time risk scale" required="required" />
+        <br><input type="text" name="Weather risk scale" class="form-control" placeholder="Weather risk scale" required="required" />
+        <br><input type="text" name="Age risk scale" class="form-control" placeholder="Age risk scale" required="required" />
+	<br><input type="text" name="Vehicle Age risk scale" class="form-control" placeholder="Vehicle Age risk scale" required="required" />
+        <br><input type="text" name="OVERLOAD SCALE" class="form-control" placeholder="OVERLOAD SCALE" required="required" />
+        <br><input type="text" name="VEHICLE HEALTH SCALE" class="form-control" placeholder="VEHICLE HEALTH SCALE" required="required" />
+        <br><button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
